@@ -1,11 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
-int int maxSumSubarray(vector<int>& nums, int k){
+int maxSumSubarray(vector<int>& nums, int k){
     int maxSum = 0;
-    for(int i = 0; i < arr.size(); i++){
+    for(int i = 0; i < nums.size(); i++){
         int sum = 0;
         for(int j = i; j < i+k; j++){
-            sum +=arr[j]; 
+            sum +=nums[j]; 
         }
         maxSum = max(maxSum,sum);
     }

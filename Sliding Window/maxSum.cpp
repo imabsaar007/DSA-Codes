@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-int maxSum(vector<int> arr,int k){
+int int maxSumSubarray(vector<int>& nums, int k){
     int maxSum = 0;
     for(int i = 0; i < arr.size(); i++){
         int sum = 0;
@@ -13,6 +13,6 @@ int maxSum(vector<int> arr,int k){
 }
 int main(){
     vector<int> arr = {2,4,5,6,78,3};
-    cout << maxSum(arr,3);
+    cout << maxSumSubarray(arr,3);
     return 0;
 }

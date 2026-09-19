@@ -23,7 +23,14 @@ int maximumSubarraySum(vector<int> arr, int k){
     return maxSum;
 }
 int main(){
-    vector<int> arr = {1,5,4,2,9,9,9};
+    vector<int> arr;
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++){
+        int x;
+        cin >> x;
+        arr.push_back(x);
+    }
     int k = 3;
     cout << maximumSubarraySum(arr, k) << endl;
 }

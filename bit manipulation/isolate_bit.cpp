@@ -1,10 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
-uint32_t unsetLowest(uint32_t n){
-    return n & (n-1);
+int isolateBit(uint32_t n){
+    return (n & uint32_t{0}-n);
 }
 int main(){
     uint32_t n = 44;
-    cout << unsetLowest(n);
+    cout << isolateBit(n);
     return 0;
 }

@@ -5,6 +5,9 @@ class Student{
     string name;
     int roll;
     float gpa;
+    Student(){
+
+    }
     Student(string name , int roll, float gpa){
         this->name = name;
         this->roll = roll;
@@ -19,5 +22,10 @@ int main(){
     cout << absaar.name << endl;
     change(absaar);
     cout << absaar.name << endl;
+    Student mehar;
+    mehar.name = "Mehar Jamal";
+    mehar.roll = 33;
+    mehar.gpa = 9.3;
+    cout << mehar.name << endl;
     return 0;
 }

@@ -5,15 +5,17 @@ class Student{
     string name;
     int roll;
     float gpa;
+    Student(string name , int roll, float gpa){
+        this->name = name;
+        this->roll = roll;
+        this->gpa = gpa;
+    }
 };
 void change(Student& s){
     s.name = "Mehar";
 }
 int main(){
-    Student absaar;
-    absaar.name="Absaar";
-    absaar.roll=10;
-    absaar.gpa=8.5;
+    Student absaar("absaar",34,9.5);
     cout << absaar.name << endl;
     change(absaar);
     cout << absaar.name << endl;

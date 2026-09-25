@@ -31,6 +31,18 @@ class List{
             temp = temp->next;
         }
     }
+    Node* reverse(Node *head){
+        Node *curr = head;
+        Node* prev = NULL;
+        Node* next = NULL;
+        while(curr != NULL){
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
 };
 int main(){
     List linkedList;
@@ -41,4 +53,7 @@ int main(){
     linkedList.push(445);
     linkedList.push(35);
     linkedList.print();
+    linkedList.head = linkedList.reverse(linkedList.head);
+    linkedList.print();
+
 }

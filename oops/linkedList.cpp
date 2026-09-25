@@ -41,6 +41,30 @@ class List{
         temp->next = NULL;
         delete temp;
     }
+    void pop_back(){
+        Node * temp = head;
+        while(temp->next != tail){
+            temp = temp->next;
+        }
+        temp->next = NULL;
+        delete tail;
+        tail = temp;
+    }
+    void push_middle(int data,int pos){
+        Node* newNode = new Node(data);
+        if(pos < 0){
+            return;
+        }
+        if(pos == 0){
+            push_front(data);
+        }
+        Node* temp = head;
+        for(int i = 0; i < pos-1; i++){
+            temp = temp->next;
+        }
+        newNode->next = temp->next;
+        temp->next = newNode;
+    }
     void print(){
         Node* temp = head;
         while(temp != NULL){
@@ -56,6 +80,8 @@ int main(){
     ll.push_front(5); 
     ll.push_back(8);
     ll.pop_first();
+    ll.pop_back();
+    ll.push_middle(7,2);
     ll.print();
     return 0;
 }

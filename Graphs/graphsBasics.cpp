@@ -27,6 +27,49 @@ class Graph{
         recursiveDFS(startVertex,visited);
         cout << endl;
     }
+    void BFS(int start){
+       vector<bool> visited(vertices,false);
+       queue<int> q;
+       q.push(start);
+       visited[start] = true;
+       while(!q.empty()){
+        int node = q.front();
+        q.pop();
+        cout << node <<" ";
+        for(int neighbour : adj[node]){
+            if(!visited[neighbour]){
+                q.push(neighbour);
+                visited[neighbour] = true;
+            }
+        }
+       }
+    }
+    bool isCyclicUtilDFS(int node,int parent,vector<bool>& visited){
+        visited[node] = true;
+        for(int neighbour : adj[node]){
+            if(!visited[neighbour]){
+                if(isCyclicUtilDFS(neighbour,node,visited)){
+                    return true;
+                }
+            }
+            else if(neighbour != parent){
+                return true;
+            }
+        }
+        return false;
+    }
+    bool isCyclicDFS() {
+        vector<bool> visited(vertices, false);
+        // Loop through all vertices to handle disconnected graphs
+        for (int i = 0; i < vertices; i++) {
+            if (!visited[i]) {
+                if (isCyclicUtilDFS(i, -1, visited)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 };
 int main(){
     Graph g(4);
@@ -34,5 +77,8 @@ int main(){
     g.addEdge(0,3);
     g.addEdge(1,2);
     g.DFS(0);
+    g.BFS(0);
+    cout << endl;
+    cout << g.isCyclicDFS();
     return 0;
 }

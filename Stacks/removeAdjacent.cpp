@@ -19,7 +19,7 @@ string removeAdjacent(string& s){
     return result;
 }
 int main(){
-    string s = "abbaca";
+    string s = "bbbcd";
     cout << removeAdjacent(s) << endl;
     return 0;
 }
